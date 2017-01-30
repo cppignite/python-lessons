@@ -1,18 +1,13 @@
 import sys
-
-user1 = raw_input("What's your name?")
-user2 = raw_input("And your name?")
-
+import os
 
 user1_score = 0
 user2_score = 0
 
 turn_num = 0
 
-def compare(u1, u2):
-    global user1_score
-    global user2_score
 
+def compare(u1, u2):
     if u1 == u2:
         return("It's a tie! The scores weren't changed.")
     elif u1 == 'rock':
@@ -41,17 +36,15 @@ def compare(u1, u2):
         sys.exit()
 
 for turn in range(1,4):
-    user1_answer = raw_input("%s, do yo want to choose rock, paper or scissors?" % user1)
-    user2_answer = raw_input("%s, do you want to choose rock, paper or scissors?" % user2)
-
+    os.system('clear')
+    user1_answer = input("Player 1, do you want to choose rock, paper or scissors?")
+    os.system('clear')
+    user2_answer = input("Player 2, do you want to choose rock, paper or scissors?")
     print(compare(user1_answer, user2_answer))
 
 if user1_score > user2_score:
-    print ("Congratulations %s, you won this game!" % user1)
-    print ("The scores were: %s: %s and %s: %s ." % (user1, user1_score, user2, user2_score))
+    print ("Congratulations Player 1, you won this game!")
 elif user2_score > user1_score:
-    print ("Congratulations %s, you won this game!" % user2)
-    print ("The scores were: %s: %s and %s: %s ." % (user1, user1_score, user2, user2_score))
+    print ("Congratulations Player 2, you won this game!")
 else:
     print ("Wow you two tied this game!")
-    print ("The scores were: %s: %s and %s: %s ." % (user1, user1_score, user2, user2_score))
